@@ -20,7 +20,6 @@ Oppgavene har økende vanskelighetsgrad. Du trenger ikke rekke alt, og det er he
 | [Oppgave 4](oppgave-4/README.md) | DOMen: finne, endre og lage elementer |
 | [Oppgave 5](oppgave-5/README.md) | Events: reagere på input |
 | [Oppgave 6](oppgave-6/README.md) | Hente data fra et API: værstasjoner fra Kystverket |
-| Oppgave 7 - 8 | Bygg videre på appen |
 
 :bulb: Har du jobbet med JavaScript før? Skum raskt gjennom oppgave 1 - 3, og bruk tiden på ekstraoppgavene merket med 🌶️.
 
