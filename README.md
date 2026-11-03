@@ -13,13 +13,14 @@ Vi bruker ingen rammeverk eller byggeverktøy. Alt du trenger er en nettleser og
 Oppgavene har økende vanskelighetsgrad. Du trenger ikke rekke alt, og det er helt greit å hoppe over det du kan fra før.
 
 | Oppgave | Tema |
-| [Oppgave 1](oppgave-1/README.md) | Oppsett, HTML og DevTools
-| [Oppgave 2](oppgave-2/README.md) | Grunnleggende JavaScript
-| [Oppgave 3](oppgave-3/README.md) | Objekter, arrays og funksjoner som verdier
-| [Oppgave 4](oppgave-4/README.md) | DOMen: finne, endre og lage elementer
-| [Oppgave 5](oppgave-5/README.md) | Events: reagere på brukeren
-| [Oppgave 6](oppgave-6/README.md) | Hente data fra et API: værstasjoner fra Kystverket
-| Oppgave 7 - 8 | Bygg videre på appen
+|---------|------|
+| [Oppgave 1](oppgave-1/README.md) | Oppsett, HTML og DevTools |
+| [Oppgave 2](oppgave-2/README.md) | Grunnleggende JavaScript |
+| [Oppgave 3](oppgave-3/README.md) | Objekter, arrays og funksjoner som verdier |
+| [Oppgave 4](oppgave-4/README.md) | DOMen: finne, endre og lage elementer |
+| [Oppgave 5](oppgave-5/README.md) | Events: reagere på input |
+| [Oppgave 6](oppgave-6/README.md) | Hente data fra et API: værstasjoner fra Kystverket |
+| Oppgave 7 - 8 | Bygg videre på appen |
 
 :bulb: Har du jobbet med JavaScript før? Skum raskt gjennom oppgave 1 - 3, og bruk tiden på ekstraoppgavene merket med 🌶️.
 
