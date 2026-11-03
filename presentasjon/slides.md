@@ -170,23 +170,6 @@ Nesten alt skyldes automatisk typekonvertering. Bruk `===`, og ikke bland typer.
 </style>
 
 ---
-
-# Document Object Model (DOM)
-
-```mermaid {theme: 'base', scale: 0.9}
-flowchart LR
-   html[index.html] -- parses --> dom[DOM]
-   dom --> render[Render tree]
-   css[style.css] --> render
-   render --> layout[Layout]
-   layout --> paint[Paint]
-   js[script.js] -. reads and changes .-> dom
-```
-
-- Nettleseren leser HTML ovenfra og ned og bygger DOMen
-- JavaScript endrer DOMen, og nettleseren tegner siden på nytt
-
----
 layout: two-cols-header
 ---
 
@@ -220,8 +203,8 @@ flowchart TD
    ul --> li1[li]
    ul --> li2[li]
 ```
-
 ---
+
 
 # Document Object Model (DOM)
 
