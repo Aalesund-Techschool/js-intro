@@ -1,0 +1,49 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 40rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  line-height: 1.5;
+  color: #1f2328;
+  background: #f6f8fa;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+.intro {
+  margin-top: 0.25rem;
+  color: #59636e;
+}
+
+section {
+  margin-top: 2rem;
+}
+
+#language-list {
+  list-style: none;
+  padding: 0;
+}
+
+#language-list li {
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+}
+
+#language-list li.new {
+  border-left: 4px solid #1f883d;
+}
+
+.highlighted {
+  background: #fff8c5;
+  border-left: 4px solid #d4a72c;
+  padding-left: 0.5rem;
+}
+
+.hidden {
+  display: none;
+}

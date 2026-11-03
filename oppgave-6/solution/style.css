@@ -1,0 +1,95 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 60rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  line-height: 1.5;
+  color: #1f2328;
+  background: #f6f8fa;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+.intro {
+  margin-top: 0.25rem;
+  color: #59636e;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Keep the measurements in view while scrolling through the stations */
+#measurements {
+  position: sticky;
+  top: 1rem;
+}
+
+@media (max-width: 40rem) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  #measurements {
+    position: static;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+}
+
+#station-list li:hover {
+  cursor: pointer;
+  border-color: #0969da;
+}
+
+#station-list li.selected {
+  border-left: 4px solid #0969da;
+  background: #ddf4ff;
+}
+
+.owner {
+  margin-left: 0.5rem;
+  padding: 0 0.4rem;
+  font-size: 0.8rem;
+  color: #59636e;
+  border: 1px solid #d1d9e0;
+  border-radius: 1rem;
+}
+
+.owner.kystverket {
+  color: #0550ae;
+  border-color: #0969da;
+}
+
+.position,
+.types,
+.time {
+  display: block;
+  font-size: 0.9rem;
+  color: #59636e;
+}
+
+.value {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.error {
+  color: #cf222e;
+}

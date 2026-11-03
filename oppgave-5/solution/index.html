@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Programming languages</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Programming languages</h1>
+      <p class="intro">A short overview of some popular languages.</p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Warm-up</h2>
+        <button id="click-button">Click me</button>
+        <p>You have clicked <span id="click-count">0</span> times.</p>
+      </section>
+
+      <section>
+        <h2>Languages</h2>
+        <label>
+          Search
+          <input id="search" type="search" placeholder="Type to filter..." />
+        </label>
+        <ul id="language-list"></ul>
+      </section>
+
+      <section>
+        <h2>Add a language</h2>
+        <form id="add-form">
+          <label>
+            Name
+            <input name="name" required />
+          </label>
+          <label>
+            Year
+            <input name="year" type="number" required />
+          </label>
+          <button type="submit">Add</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
