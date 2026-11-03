@@ -44,18 +44,18 @@ layout: cover
 
 <!-- TODO: legg til medforelesere -->
 - Marius Kalvø (Kystverket)
+- Magnus Grande (NTNU)
 
 ---
 
 # Agenda
 
 - HTML, CSS og JavaScript
-- Hva skjer når nettleseren åpner en side
 - DOMen
 - Events og callbacks
 - DevTools
-- Oppgaver: språket og DOMen
-- Oppgaver: bygg en app med data fra Kystverket
+- Oppgaver: JS og DOM
+- Oppgaver: Enkel applikasjon med API
 
 ---
 
@@ -66,11 +66,14 @@ layout: cover
 - **JavaScript** står for oppførselen
 
 ```html
-<h1 class="title">Hello!</h1>                     <!-- HTML -->
+<h1 class="title">Hello!</h1>
 
-<style> .title { color: rebeccapurple; } </style> <!-- CSS -->
 
-<script>                                          <!-- JavaScript -->
+<style> 
+  .title { color: red; } 
+</style> 
+
+<script>
   document.querySelector(".title").textContent = "Hello from JS!";
 </script>
 ```
@@ -81,7 +84,7 @@ layout: cover
 
 - Laget på rundt ti dager i 1995 for nettleseren Netscape
 - Har ingenting med Java å gjøre, bortsett fra navnet
-- Det eneste språket som kjører direkte i alle nettlesere
+- Språk som kjører direkte i alle nettlesere
 - Kjører i dag også på servere (Node.js), i apper og i verktøy
 - Dynamisk typet: variabler har ingen fast type
 - Standardiseres som ECMAScript, med en ny versjon hvert år
@@ -91,15 +94,13 @@ layout: cover
 layout: two-cols-header
 ---
 
-# JavaScript på én slide
-
-Det du trenger for å lese koden i oppgavene
+# JavaScript - Cheatsheet
 
 ::left::
 
 ```js
-const name = "Ada"; // can't be reassigned
-let count = 0;      // can be reassigned
+const name = "Ada";
+let count = 0;
 count = count + 1;
 
 if (count === 1) {
@@ -123,8 +124,7 @@ const languages = [
 
 languages[0].name; // "C"
 
-// Functions are values, and can be passed
-// into other functions (callbacks)
+
 const names = languages.map((l) => l.name);
 const modern = languages.filter(
   (l) => l.year > 2000,
@@ -230,7 +230,6 @@ flowchart TD
 - Last siden på nytt, og alle endringene er borte
 - `View source` viser filen. `Elements` i DevTools viser DOMen
 - Hvert element er et objekt med egenskaper og metoder
-- Bruk `textContent` for tekst fra brukere og API-er. `innerHTML` tolker teksten som HTML, og åpner for XSS
 
 ```js
 const heading = document.querySelector("h1");
@@ -241,6 +240,24 @@ const item = document.createElement("li");
 item.textContent = "Kotlin";
 document.querySelector("#list").append(item);
 ```
+
+---
+
+# XSS: cross-site scripting
+
+- `innerHTML` tolker teksten som HTML og lager nye elementer
+- Kommer teksten fra en bruker eller et API, kan noen få sin egen JavaScript til å kjøre på siden din
+- Den koden har tilgang til alt siden har: DOMen, dataene og innloggingen til brukeren
+
+```js
+const comment = `<img src="x" onerror="alert('You have been hacked!')">`;
+
+element.innerHTML = comment;   // ❌ creates an <img>, and onerror runs the code
+element.textContent = comment; // ✅ shown as plain text
+```
+
+- Bruk `textContent` for tekst, og `createElement` når du trenger HTML-struktur
+- Rammeverk som React gjør dette for deg, men har egne nødutganger, som `dangerouslySetInnerHTML`
 
 ---
 
@@ -296,28 +313,32 @@ layout: center
 
 ---
 
-# Oppgavene
+# Oppgaver
 
 | | Tema | Nivå |
 |---|---|---|
 | 1 | Oppsett, HTML og DevTools | ●○○ |
 | 2 | Grunnleggende JavaScript | ●○○ |
 | 3 | Objekter, arrays og funksjoner som verdier | ●●○ |
-| 4 | DOMen: finne, endre og lage elementer | ●●○ |
-| 5 | Events: reagere på brukeren | ●●○ |
-| 6 | Hente data fra et API: værstasjoner fra Kystverket | ●●● |
-| 7 - 8 | Bygg videre på appen | ●●● |
+| 4 | DOMen: Finne, endre og lage elementer | ●●○ |
+| 5 | Events: Reagere på brukeren | ●●○ |
+| 6 | Hente data fra et API: Værstasjoner | ●●● |
+| 7 - 8 | App, continued.. | ●●● |
 
-- Hver oppgave bygger på den forrige. Fra oppgave 4 finnes en `start`-mappe, så du kan hoppe rett inn
-- Kan du det fra før? Hopp over, og prøv 🌶️-oppgavene
-- Erfaren? Gå gjerne off-road: bygg noe eget med API-et, prøv et rammeverk, eller grav deg ned i det du lurer på
+---
+
+# Oppgaver 
+
+- Hver oppgave bygger på den forrige. Fra oppgave 4 finnes en `start`-mappe, så du kan hoppe rett inn. Kopier med deg filer.
+- Kan du det fra før? Hopp over, og prøv 🌶️-oppgavene.
+- Ser du at alt er kjent materie? 
+  - Gå off-road: bygg noe eget med API-et (og evt andre API), grav deg ned i detaljer. Sett av tid til å lære deg noe nytt.
 
 ---
 
 # Oppgaver
 
-<!-- TODO: bekreft adressen til repoet -->
-- <https://github.com/Aalesund-Techschool/intro-to-js>
+- <https://github.com/Aalesund-Techschool/js-intro>
 - https://discord.gg/wJjYFACUbQ
 - Skriv koden selv i stedet for å kopiere
 - Står ikke svaret i oppgaveteksten? Søk på nettet. **MDN** (<https://developer.mozilla.org>) er et flott oppslagsverk for JavaScript

@@ -12,11 +12,13 @@ Etter denne oppgaven skal du kunne:
 
 ## 4.0 - Oppsett
 
-Fra nå av jobber vi med en ferdig side. I mappen `start` ligger `index.html`, `style.css` og `script.js`.
+Fra nå av jobber vi med en ferdig side. I mappen `oppgave-4/start` ligger `index.html`, `style.css` og `script.js`.
 
-:pencil2: Åpne `oppgave-4/start/index.html` i nettleseren, og åpne `oppgave-4/start/script.js` i editoren. Det er her du skal skrive koden din.
+:pencil2: Lag en ny mappe `oppgave-4` i mappen din fra oppgave 1 (for eksempel `js-workshop/oppgave-4`). Kopier `index.html`, `style.css` og `script.js` fra `oppgave-4/start` i dette repoet inn i den nye mappen. Har du ikke klonet repoet, kan du åpne filene på GitHub og kopiere innholdet.
 
-:bulb: Vil du heller jobbe i din egen mappe, kan du kopiere de tre filene dit.
+:pencil2: Åpne `index.html` fra din egen mappe i nettleseren, og `script.js` i editoren. Det er her du skal skrive koden din.
+
+:bulb: Jobb i din egen kopi, ikke i repoet. Da kan du hente oppdateringer i repoet uten konflikter, og startkoden og løsningsforslaget er alltid urørt, slik at du kan sammenligne med dem.
 
 Siden har en tom liste, `<ul id="language-list">`. Ved slutten av oppgaven skal den fylles med språkene fra `languages`-listen i `script.js`.
 
@@ -61,7 +63,7 @@ flowchart TD
 | `"#read-more"` | Elementet med `id="read-more"` |
 | `"header p"` | `<p>`-elementer som ligger inne i en `<header>` |
 
-:pencil2: Skriv følgende i `script.js`, og last siden på nytt:
+:pencil2: Legg til følgende kode i `script.js`, og last siden på nytt:
 
 ```js
 const heading = document.querySelector("h1");
@@ -90,7 +92,7 @@ Den beste måten å endre utseendet til et element på er å legge til eller fje
 facts[0].classList.add("highlighted");
 ```
 
-:pencil2: Prøv også `classList.remove`, `classList.toggle` og `classList.contains` i konsollen. Hva gjør de?
+:pencil2: Prøv også `classList.remove`, `classList.toggle` og `classList.contains` i konsollen på et av DOM-elementene. Hva gjør de?
 
 :pencil2: Skjul det siste fakta-avsnittet ved å legge på klassen `hidden`.
 
@@ -111,7 +113,7 @@ console.log(link.href);
 
 ## 4.4 - `textContent` eller `innerHTML`?
 
-:pencil2: 🤔 Hva er forskjellen? Prøv begge i konsollen:
+:pencil2: 🤔 Hva er forskjellen? Prøv begge i konsollen.
 
 ```js
 const intro = document.querySelector(".intro");

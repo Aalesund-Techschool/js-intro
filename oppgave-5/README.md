@@ -12,7 +12,9 @@ Etter denne oppgaven skal du kunne:
 
 ## 5.0 - Oppsett
 
-:pencil2: Åpne `oppgave-5/start/index.html` i nettleseren, og `oppgave-5/start/script.js` i editoren.
+:pencil2: Lag en ny mappe `oppgave-5` i mappen din fra oppgave 1 (for eksempel `js-workshop/oppgave-5`). Kopier `index.html`, `style.css` og `script.js` fra `oppgave-5/start` i dette repoet inn i den nye mappen. Har du ikke klonet repoet, kan du åpne filene på GitHub og kopiere innholdet.
+
+:pencil2: Åpne `index.html` fra din egen mappe i nettleseren, og `script.js` i editoren. Det er her du skal skrive koden din.
 
 Startkoden inneholder `languages`-listen og en enkel versjon av `renderLanguages` fra oppgave 4. Siden har fått noen nye elementer: en knapp, et søkefelt og et skjema. Ingen av dem gjør noe ennå.
 

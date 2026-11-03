@@ -14,7 +14,9 @@ Etter denne oppgaven skal du kunne:
 
 Nå bygger vi en app som viser værdata fra Kystverket sine værstasjoner langs kysten.
 
-:pencil2: Åpne `oppgave-6/start/index.html` i nettleseren, og `oppgave-6/start/script.js` i editoren.
+:pencil2: Lag en ny mappe `oppgave-6` i mappen din fra oppgave 1 (for eksempel `js-workshop/oppgave-6`). Kopier `index.html`, `style.css` og `script.js` fra `oppgave-6/start` i dette repoet inn i den nye mappen. Har du ikke klonet repoet, kan du åpne filene på GitHub og kopiere innholdet.
+
+:pencil2: Åpne `index.html` fra din egen mappe i nettleseren, og `script.js` i editoren. Det er her du skal skrive koden din.
 
 Siden har to deler: en tom liste med stasjoner til venstre, og en tom liste med målinger til høyre. I `script.js` finner du konstanten `API_URL`, som er starten på adressen til alle endepunktene i API-et.
 
