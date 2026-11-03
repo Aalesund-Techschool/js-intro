@@ -306,7 +306,6 @@ layout: center
 | 4 | DOMen: Finne, endre og lage elementer | ●●○ |
 | 5 | Events: Reagere på bruker-input | ●●○ |
 | 6 | Hente data fra et API: Værstasjoner | ●●● |
-| 7 - 8 | App, continued.. | ●●● |
 
 ---
 
