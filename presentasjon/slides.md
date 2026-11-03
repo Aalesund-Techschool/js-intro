@@ -321,7 +321,7 @@ layout: center
 | 2 | Grunnleggende JavaScript | ●○○ |
 | 3 | Objekter, arrays og funksjoner som verdier | ●●○ |
 | 4 | DOMen: Finne, endre og lage elementer | ●●○ |
-| 5 | Events: Reagere på brukeren | ●●○ |
+| 5 | Events: Reagere på bruker-input | ●●○ |
 | 6 | Hente data fra et API: Værstasjoner | ●●● |
 | 7 - 8 | App, continued.. | ●●● |
 
