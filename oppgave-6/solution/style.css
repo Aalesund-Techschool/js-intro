@@ -46,11 +46,19 @@ ul {
 }
 
 li {
-  padding: 0.5rem 0.75rem;
+  padding: 0.6rem 0.9rem;
   margin-bottom: 0.5rem;
   background: white;
   border: 1px solid #d1d9e0;
   border-radius: 6px;
+}
+
+/* Name and owner on the first row, position and measurement types below */
+#station-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 0.5rem;
 }
 
 #station-list li:hover {
@@ -64,8 +72,7 @@ li {
 }
 
 .owner {
-  margin-left: 0.5rem;
-  padding: 0 0.4rem;
+  padding: 0 0.5rem;
   font-size: 0.8rem;
   color: #59636e;
   border: 1px solid #d1d9e0;
@@ -78,15 +85,32 @@ li {
 }
 
 .position,
-.types,
-.time {
+.types {
+  grid-column: 1 / -1;
+  font-size: 0.85rem;
+  color: #59636e;
+}
+
+/* The measurements are shown as tiles, two per row */
+#measurement-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+#measurement-list li {
+  margin: 0;
+}
+
+.label {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #59636e;
 }
 
 .value {
-  font-size: 1.25rem;
+  display: block;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 

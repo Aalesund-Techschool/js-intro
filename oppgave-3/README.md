@@ -176,7 +176,7 @@ console.log(original, copy);
 ## 🌶️ Ekstra
 
 - Skriv din egen versjon av `map` som en vanlig funksjon `myMap(list, fn)`, uten å bruke den innebygde `map`. Gjør det samme for `filter`.
-- Bruk `reduce` til å regne ut gjennomsnittlig år for språkene i listen.
+- Bruk `reduce` til å regne ut gjennomsnittlig år for språkene i listen (Om du aldri har tatt borti reduce- / fold-funksjoner, kan denne være noe utfordrende)
 - Sorter språkene etter navn. 🤔 Bruk `sort` og skriv ut den opprinnelige listen etterpå. Hva har skjedd? Se på `toSorted` som et alternativ.
 - Lag et objekt som teller hvor mange språk som kom i hvert tiår, for eksempel `{ 1970: 1, 1990: 3, 2000: 1, 2010: 3 }`.
 - **Destrukturering:** Hva gjør disse linjene? (Vi legger dem i en egen blokk `{ }`, fordi `name` allerede kan være brukt som variabelnavn tidligere i filen.)

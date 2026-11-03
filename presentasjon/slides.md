@@ -296,15 +296,31 @@ layout: center
 
 ---
 
+# Oppgavene
+
+| | Tema | Nivå |
+|---|---|---|
+| 1 | Oppsett, HTML og DevTools | ●○○ |
+| 2 | Grunnleggende JavaScript | ●○○ |
+| 3 | Objekter, arrays og funksjoner som verdier | ●●○ |
+| 4 | DOMen: finne, endre og lage elementer | ●●○ |
+| 5 | Events: reagere på brukeren | ●●○ |
+| 6 | Hente data fra et API: værstasjoner fra Kystverket | ●●● |
+| 7 - 8 | Bygg videre på appen | ●●● |
+
+- Hver oppgave bygger på den forrige. Fra oppgave 4 finnes en `start`-mappe, så du kan hoppe rett inn
+- Kan du det fra før? Hopp over, og prøv 🌶️-oppgavene
+- Erfaren? Gå gjerne off-road: bygg noe eget med API-et, prøv et rammeverk, eller grav deg ned i det du lurer på
+
+---
+
 # Oppgaver
 
 <!-- TODO: bekreft adressen til repoet -->
 - <https://github.com/Aalesund-Techschool/intro-to-js>
 - https://discord.gg/wJjYFACUbQ
-- Oppgave 1 - 5: språket og DOMen
-- Oppgave 6 - 8: bygg en app med data fra Kystverket
-- Økende vanskelighetsgrad. Hopp over det du kan, og prøv 🌶️-oppgavene
 - Skriv koden selv i stedet for å kopiere
+- Står ikke svaret i oppgaveteksten? Søk på nettet. **MDN** (<https://developer.mozilla.org>) er et flott oppslagsverk for JavaScript
 - Spør om du sitter fast, eller vil diskutere
 - Har du noe relevant du vil dele?
   Legg inn en melding i **#workshops** på **Discord**

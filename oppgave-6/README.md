@@ -78,18 +78,12 @@ Hvert listeelement skal vise:
 
 - Navnet på stasjonen i et `<strong>`-element
 - Hvem som eier stasjonen (`owner`) i et `<span>` med klassen `owner`
-- Posisjonen i et element med klassen `position`, for eksempel `69.07, 15.17`
+- Posisjonen i et `<span>` med klassen `position`, for eksempel `69.07, 15.17`
 - Hvilke målinger stasjonen har (`measurementTypes`) i et `<span>` med klassen `types`, for eksempel `wind-speed, wind-direction, gust-speed`
 
 :bulb: `toFixed(2)` runder av et tall til to desimaler og gjør det om til tekst. `join(", ")` slår sammen en array til én tekst, med `", "` mellom hvert element.
 
 :bulb: Bruk `createElement`, `textContent` og `append`, ikke `innerHTML`. Dataene kommer fra et API, og som vi så i oppgave 4.4, skal vi ikke stole på at tekst utenfra er trygg.
-
-:pencil2: Gjør posisjonen om til en lenke som viser stasjonen på et kart. Lag et `<a>`-element og sett `href` til:
-
-```js
-`https://www.openstreetmap.org/?mlat=${station.latitude}&mlon=${station.longitude}#map=10/${station.latitude}/${station.longitude}`
-```
 
 :pencil2: Legg klassen `kystverket` på eier-elementet til stasjonene som eies av Kystverket, slik at de skiller seg ut. Tips: `` owner.className = `owner ${station.owner}`; ``
 
@@ -184,7 +178,7 @@ stationList.addEventListener("click", (event) => {
 1. Setter overskriften `#measurement-heading` til navnet på stasjonen
 2. Viser `Loading measurements...` i `#measurement-status`
 3. Henter målingene med `getJson`
-4. Lager et `<li>` i `#measurement-list` for hver måling i `measurements`, med type, verdi og enhet
+4. Lager et `<li>` i `#measurement-list` for hver måling i `measurements`. Vis typen i et `<span>` med klassen `label`, og verdien og enheten i et `<span>` med klassen `value`
 
 Kall `loadMeasurements(station)` fra klikk-lytteren.
 
@@ -201,7 +195,7 @@ Kall `loadMeasurements(station)` fra klikk-lytteren.
 }
 ```
 
-:pencil2: `meters-per-second` er ikke så pent å lese. Lag et objekt som oversetter enhetene, og bruk det når du viser verdien:
+:pencil2: `meters-per-second` og `gust-direction` er ikke så pene å lese. Lag to objekter som oversetter enhetene og typene, og bruk dem når du viser målingene:
 
 ```js
 const units = {
@@ -212,14 +206,29 @@ const units = {
   knots: "knots",
 };
 
+const measurementNames = {
+  "air-temperature": "Air temperature",
+  "wind-speed": "Wind speed",
+  "wind-direction": "Wind direction",
+  "gust-speed": "Gust speed",
+  "gust-direction": "Gust direction",
+  "wave-height": "Wave height",
+};
+
 const unit = units[measurement.unit] ?? measurement.unit;
+const name = measurementNames[measurement.type] ?? measurement.type;
 ```
 
-:bulb: `??` gir verdien til høyre hvis verdien til venstre er `null` eller `undefined`. Finnes ikke enheten i `units`, viser vi den slik den kom fra API-et.
-
-:pencil2: Vis når målingen ble gjort. `timestamp` er en tekst i formatet ISO 8601, og tiden er i UTC. Gjør den om til norsk tid med `new Date(measurement.timestamp).toLocaleString("nb-NO")`.
+:bulb: `??` gir verdien til høyre hvis verdien til venstre er `null` eller `undefined`. Finnes ikke enheten eller typen i oppslagsobjektet, viser vi den slik den kom fra API-et.
 
 :pencil2: Noen stasjoner har ingen målinger akkurat nå, og da er `measurements` en tom array. Vis `This station has no measurements right now.` i stedet for en tom liste. Prøv for eksempel stasjonen `Vestfjorden`.
+
+:pencil2: Vis når målingene ble gjort i `#measurement-status`, for eksempel `Updated 03.11.2026, 09:23`. Målingene fra en stasjon er som regel gjort samtidig, så det holder å bruke `timestamp` fra den første målingen. `timestamp` er en tekst i formatet ISO 8601, og tiden er i UTC. Gjør den om til norsk tid slik:
+
+```js
+const updated = new Date(measurements[0].timestamp);
+updated.toLocaleString("nb-NO", { dateStyle: "short", timeStyle: "short" });
+```
 
 :pencil2: Marker stasjonen som er valgt med klassen `selected`. Husk å fjerne klassen fra stasjonen som var valgt før:
 
@@ -237,7 +246,7 @@ item.classList.add("selected");
 - Legg til et søkefelt som filtrerer stasjonene på navn, slik som i oppgave 5.2.
 - Legg til en nedtrekksliste (`<select>`) der brukeren kan velge å vise alle stasjoner, bare Kystverket sine eller bare eksterne.
 - Legg til en avkrysningsboks som bare viser stasjoner som måler bølgehøyde (`wave-height`). Tips: `includes`.
-- Gjør `measurement.type` om til pene navn, for eksempel `Wind speed` i stedet for `wind-speed`, med et oppslagsobjekt slik som `units`.
+- Bruk `measurementNames` til å vise pene navn på målingene i stasjonslisten også. Tips: `map` før `join`.
 - Vis vindretningen som en pil. Lag et element med teksten `↑`, og roter det med `` arrow.style.rotate = `${measurement.value + 180}deg`; ``. Vindretning er retningen vinden kommer *fra*, så pilen må snus 180 grader for å vise hvor vinden blåser.
 - Legg til en `Refresh`-knapp som henter målingene på nytt for stasjonen som er valgt. Kan du få målingene til å oppdatere seg selv hvert minutt med `setInterval`?
 - Klikk raskt på flere stasjoner etter hverandre med `Slow 4G` på. Kan det hende at målingene fra feil stasjon blir vist? Bruk en `AbortController` til å avbryte den forrige forespørselen når brukeren klikker på en ny stasjon.

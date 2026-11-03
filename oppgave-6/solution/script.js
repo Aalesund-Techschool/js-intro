@@ -35,10 +35,8 @@ function renderStations(stationsToShow) {
     owner.className = `owner ${station.owner}`;
     owner.textContent = station.owner;
 
-    const position = document.createElement("a");
+    const position = document.createElement("span");
     position.className = "position";
-    position.href = `https://www.openstreetmap.org/?mlat=${station.latitude}&mlon=${station.longitude}#map=10/${station.latitude}/${station.longitude}`;
-    position.target = "_blank";
     position.textContent = `${station.latitude.toFixed(2)}, ${station.longitude.toFixed(2)}`;
 
     const types = document.createElement("span");
@@ -78,6 +76,15 @@ const units = {
   knots: "knots",
 };
 
+const measurementNames = {
+  "air-temperature": "Air temperature",
+  "wind-speed": "Wind speed",
+  "wind-direction": "Wind direction",
+  "gust-speed": "Gust speed",
+  "gust-direction": "Gust direction",
+  "wave-height": "Wave height",
+};
+
 function renderMeasurements(measurements) {
   measurementList.replaceChildren();
 
@@ -86,25 +93,24 @@ function renderMeasurements(measurements) {
     return;
   }
 
-  measurementStatus.textContent = "";
+  // The measurements from one station are usually made at the same time, so we show it once
+  const updated = new Date(measurements[0].timestamp);
+  measurementStatus.textContent = `Updated ${updated.toLocaleString("nb-NO", { dateStyle: "short", timeStyle: "short" })}`;
 
   measurements.forEach((measurement) => {
     const item = document.createElement("li");
 
-    const type = document.createElement("strong");
-    type.textContent = measurement.type;
+    // Fall back to the values from the API if they are not in our lookup tables
+    const label = document.createElement("span");
+    label.className = "label";
+    label.textContent = measurementNames[measurement.type] ?? measurement.type;
 
-    // Fall back to the unit from the API if it is not in our lookup table
     const unit = units[measurement.unit] ?? measurement.unit;
     const value = document.createElement("span");
     value.className = "value";
-    value.textContent = ` ${measurement.value} ${unit}`;
+    value.textContent = `${measurement.value} ${unit}`;
 
-    const time = document.createElement("span");
-    time.className = "time";
-    time.textContent = new Date(measurement.timestamp).toLocaleString("nb-NO");
-
-    item.append(type, value, time);
+    item.append(label, value);
     measurementList.append(item);
   });
 }

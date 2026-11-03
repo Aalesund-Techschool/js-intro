@@ -77,11 +77,17 @@ console.log(isEven(8)); // true
 console.log(isEven(7)); // false
 
 function grade(points) {
-  if (points >= 90) return "A";
-  if (points >= 80) return "B";
-  if (points >= 60) return "C";
-  if (points >= 40) return "D";
-  return "F";
+  if (points >= 90) {
+    return "A";
+  } else if (points >= 80) {
+    return "B";
+  } else if (points >= 60) {
+    return "C";
+  } else if (points >= 40) {
+    return "D";
+  } else {
+    return "F";
+  }
 }
 
 console.log(grade(95), grade(72), grade(12)); // A C F
@@ -100,7 +106,9 @@ console.log(almostEqual(0.1 + 0.2, 0.3)); // true
 // so we need Number.isNaN to check for it
 function toNumber(text) {
   const number = Number(text);
-  if (Number.isNaN(number)) return null;
+  if (Number.isNaN(number)) {
+    return null;
+  }
   return number;
 }
 

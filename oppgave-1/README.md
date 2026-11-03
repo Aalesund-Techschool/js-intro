@@ -30,7 +30,12 @@ Etter denne oppgaven skal du kunne:
 </html>
 ```
 
-:pencil2: Åpne filen i nettleseren. Du kan dobbeltklikke på filen, eller dra den inn i et nettleservindu.
+:pencil2: Åpne filen i nettleseren. Du kan gjøre det på en av disse måtene:
+
+- Finn filen i filutforskeren (Finder på macOS, Filutforsker på Windows) og dobbeltklikk på den.
+- Dra filen fra fillisten i editoren (for eksempel VS Code) og slipp den i et nettleservindu.
+
+:bulb: Dobbeltklikker du på filen inne i VS Code, åpnes den bare i editoren, ikke i nettleseren. I VS Code kan du høyreklikke på filen og velge `Reveal in Finder` (macOS) eller `Reveal in File Explorer` (Windows) for å finne den i filutforskeren.
 
 :bulb: Adressefeltet viser nå noe som starter med `file://`. Nettleseren leser filen rett fra disken din.
 
@@ -39,7 +44,6 @@ Etter denne oppgaven skal du kunne:
 Alle moderne nettlesere har innebygde utviklerverktøy. Dette er det viktigste verktøyet ditt som webutvikler.
 
 :pencil2: Åpne DevTools med `F12`, `Ctrl+Shift+I` (Windows/Linux) eller `Cmd+Option+I` (macOS). Du kan også høyreklikke på siden og velge `Inspiser` / `Inspect`.
-
 :pencil2: Gå til fanen `Console`. Her kan du skrive JavaScript og kjøre det direkte på siden. Prøv:
 
 ```js
@@ -51,11 +55,11 @@ alert("Hello from the console!")
 
 :bulb: Konsollen er perfekt for å teste små kodebiter. Bruk den mye gjennom hele workshopen.
 
-## 1.3 - HTML-filen er ikke det samme som DOMen
+## 1.3 - HTML-filen vs DOM
 
 Når nettleseren laster `index.html`, leser den teksten og bygger et tre av objekter i minnet. Dette treet kalles **DOM** (Document Object Model). Det er DOMen, ikke HTML-filen, som vises på skjermen, og det er DOMen JavaScript kan endre.
 
-:pencil2: Gå til fanen `Elements`. Det ser ut som HTML-koden din, men det du ser er DOMen.
+:pencil2: Gå til fanen `Elements` (i Firefox heter den `Inspector`). Det ser ut som HTML-koden din, men det du ser er DOMen.
 
 :pencil2: Dobbeltklikk på teksten `Hello, world!` i `Elements` og endre den til noe annet. Trykk `Enter`. Overskriften på siden endrer seg med en gang.
 
@@ -68,11 +72,10 @@ Når nettleseren laster `index.html`, leser den teksten og bygger et tre av obje
 :pencil2: Skriv dette i `Console`:
 
 ```js
-document.title = "Changed from the console"
 document.body.style.background = "lightyellow"
 ```
 
-Se på fanen i nettleseren, og på bakgrunnen. `document` er inngangen til hele DOMen fra JavaScript.
+Se på bakgrunnen på siden. `document` er inngangen til hele DOMen fra JavaScript.
 
 ## 1.4 - Koble på en JavaScript-fil
 
@@ -96,7 +99,7 @@ heading.textContent = "Hello from JavaScript!";
 
 :pencil2: Last siden på nytt og se i `Console`. Hva skjer?
 
-Du skal få en rød feilmelding omtrent som `Cannot set properties of null (setting 'textContent')`. Og `console.log(heading)` skriver ut `null`.
+Du skal få en rød feilmelding omtrent som `Cannot set properties of null (setting 'textContent')` (eller en lignende feilmelding, alt etter nettleser) Og `console.log(heading)` skriver ut `null`.
 
 :bulb: Nettleseren leser HTML-en ovenfra og ned. Når den kommer til `<script>`, stopper den, henter skriptet og kjører det *før* den leser resten av siden. På det tidspunktet finnes ikke `<h1>` i DOMen ennå, så `querySelector` finner ingenting og gir `null`.
 
@@ -122,7 +125,7 @@ consol.log("This line has a typo");
 
 :pencil2: Last siden på nytt. Les feilmeldingen i `Console`. Til høyre for meldingen står filnavnet og linjenummeret, for eksempel `script.js:7`. Klikk på det.
 
-Du havner i fanen `Sources`, som viser nøyaktig hvilken linje som feilet.
+Du havner i fanen `Sources` (i Firefox heter den `Debugger`), som viser nøyaktig hvilken linje som feilet.
 
 :pencil2: Rett opp skrivefeilen og last siden på nytt.
 
@@ -131,7 +134,6 @@ Du havner i fanen `Sources`, som viser nøyaktig hvilken linje som feilet.
 ## 🌶️ Ekstra
 
 - Marker `<h1>` i `Elements`, gå til `Console` og skriv `$0`. Hva får du? Prøv `$0.textContent = "Selected!"`.
-- Legg inn linjen `debugger;` midt i `script.js` og last siden på nytt med DevTools åpen. Koden stopper på den linjen. Bruk knappene i `Sources` til å gå videre én linje om gangen, og hold musen over variablene for å se verdiene.
 - Se i fanen `Network` mens du laster siden på nytt. Hvilke filer henter nettleseren, og i hvilken rekkefølge?
 - Hva skjer hvis du lager feil i HTML-en, for eksempel glemmer en lukketagg som `</p>`? Får du en feilmelding? Se i `Elements` hvordan nettleseren har tolket det.
 

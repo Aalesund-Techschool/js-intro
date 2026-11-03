@@ -56,7 +56,7 @@ console.log(typeof null);
 
 - Det finnes bare én talltype, `number`, for både heltall og desimaltall.
 - Arrays (lister) er egentlig objekter. Bruk `Array.isArray(value)` for å sjekke om noe er en array.
-- `typeof null` gir `"object"`. Dette er en kjent feil i språket fra 1995 som aldri har blitt rettet, fordi det ville ødelagt eksisterende nettsider.
+- `typeof null` gir `"object"`. Dette er gammel morro fra 1995 som aldri har blitt rettet, fordi det ville ødelagt eksisterende nettsider.
 - `undefined` betyr «har ingen verdi ennå», for eksempel en variabel som ikke er satt. `null` brukes når vi med vilje sier «ingen verdi».
 
 ## 2.3 - Sammenligning og automatisk typekonvertering
